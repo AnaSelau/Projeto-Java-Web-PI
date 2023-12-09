@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Triagem</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Triagem</h1>
+  
+      <!-- Carregamento -->
+      <h2>Especialistas recomendados:</h2>
+
+      <!-- Botões com modais -->
+    <button id="allergyButton" onclick="showModal('Doctor Clin \nRua Primeiro de Março, n° 334, Centro \nSão Leopoldo \nTelefone: 3592 3030')">Especialista 1: Clínico Geral</button>
+
+    <button id="allergyButton" onclick="showModal('Clínica Med \nRua Nações Unidas, n° 1734, Centro \nNovo Hamburgo \nTelefone: 3592 3030')">Especialista 2: Infectologista</button>
+
+    <button id="allergyButton" onclick="showModal('Saúde Vital \nRua Germando Henke, n° 100, Centro \nSapucaia do Sul \nTelefone: 3592 3030')">Especialista 3: Neurologista</button>
+
+    <button id="allergyButton" onclick="showModal('Uniclin Saúde \nRua Amadeo Rossi, n° 250, Morro do Espelho \nSão Leopoldo \nTelefone: 51 3030-4646')">Especialista 4: Dermatologista</button>
+
+     <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+    <!-- Botão Ver resultados -->
+<button id="seeResultsButton" onclick="goToHomePage()">Nova consulta</button>
+<button id="seeResultsButton" onclick="goToEndPage()">Finalizar consulta</button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

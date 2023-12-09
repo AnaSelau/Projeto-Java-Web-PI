@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Triagem</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Triagem</h1>
+  
+      <!-- Carregamento -->
+      <h2>Resultados:</h2>
+
+      <!-- Botões com modais -->
+    <button id="allergyButton" onclick="showModal('Alergia respiratória corresponde a uma resposta exagerada do sistema imunológico a substâncias como pó, pólen, pêlos de animais ou fungos, por exemplo, provocando doenças, como rinite, asma ou sinusite.')">Alergia Respiratória</button>
+
+    <button id="allergyButton" onclick="showModal('A alergia na pele é uma reação inflamatória que pode manifestar-se em diferentes regiões da pele, como mãos, pés, face, braços, axilas, pescoço, pernas, costas ou barriga, causando sintomas como vermelhidão, coceira e bolinhas brancas ou avermelhadas na pele.')">Alergia de pele</button>
+
+     <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+    <!-- Botão para Analisar -->
+    <button id="analyzeButton" onclick="goToExpertsPage()">Ver especialistas</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

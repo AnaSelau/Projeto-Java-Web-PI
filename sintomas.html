@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Triagem</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Triagem</h1>
+    
+     <!-- Campo de Busca -->
+     <div class="search-container">
+        <label for="searchInput">Buscar:</label>
+        <div class="search-input-container">
+          <input type="text" id="searchInput" placeholder="Digite uma doença">
+          <button id="searchButton" onclick="search()">Pesquisar</button>
+        </div>
+      </div>
+  
+      <!-- Subtítulo e Campos para Sintomas -->
+      <h2>Seus sintomas:</h2>
+      <div class="symptoms-container">
+        <div class="symptom-input">
+          <label for="symptom1">Sintoma 1:</label>
+          <input type="text" id="symptom1">
+        </div>
+        <div class="symptom-input">
+          <label for="symptom2">Sintoma 2:</label>
+          <input type="text" id="symptom2">
+        </div>
+        <div class="symptom-input">
+          <label for="symptom3">Sintoma 3:</label>
+          <input type="text" id="symptom3">
+        </div>
+        <div class="symptom-input">
+          <label for="symptom4">Sintoma 4:</label>
+          <input type="text" id="symptom4">
+        </div>
+      </div>
+
+    <!-- Botão para Analisar -->
+    <button id="analyzeButton" onclick="goToNextPage()">Analisar</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
