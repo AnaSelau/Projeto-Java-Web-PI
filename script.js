@@ -7,41 +7,53 @@ function search() {
 
   const searchTerm = searchInput.value.trim();
 
+  // Defina o modo da solicitação como 'no-cors'
+  const requestOptions = {
+    method: 'GET',
+    mode: 'no-cors',
+  };
+
   // Verificar se o campo de busca está vazio
   if (searchTerm === '') {
     alert('Por favor, digite um sintoma.');
     return;
   }
 
-  // Verificar se o campo de busca contém apenas letras
+  // Verificar se o campo de busca contém apenas letras ou espaços
   if (!/^[a-zA-Z\s]+$/.test(searchTerm)) {
-    alert('No campo Buscar, digite apenas letras.');
+    alert('No campo Buscar, digite apenas letras e espaços.');
     return;
   }
 
-  // Verificar se o campo Sintoma 1 está vazio
-  if (symptom1Input.value.trim() === '') {
-    // Se estiver vazio, preencher com o termo de busca
-    symptom1Input.value = searchTerm;
-  } else if (symptom2Input.value.trim() === '') {
-    // Se o Sintoma 1 já estiver preenchido, preencher o Sintoma 2
-    symptom2Input.value = searchTerm;
-  } else if (symptom3Input.value.trim() === '') {
-    // Se o Sintoma 2 já estiver preenchido, preencher o Sintoma 3
-    symptom3Input.value = searchTerm;
-  } else if (symptom4Input.value.trim() === '') {
-    // Se o Sintoma 3 já estiver preenchido, preencher o Sintoma 4
-    symptom4Input.value = searchTerm;
-  } else {
-    // Se todos os sintomas já estiverem preenchidos, exibir uma mensagem de aviso
-    alert('Você já inseriu todos os sintomas disponíveis.');
-  }
+  // Fazer uma requisição ao servidor para buscar sintomas
+  fetch(`http://localhost:3000/sintomas/${searchTerm}`)
+    .then(response => response.json())
+    .then(data => {
+      // Verificar se há sintomas retornados
+      if (data && data.length > 0) {
+        // Preencher os campos de sintomas com os dados recebidos
+        if (symptom1Input.value.trim() === '') {
+          symptom1Input.value = data[0];
+        } else if (symptom2Input.value.trim() === '') {
+          symptom2Input.value = data[0];
+        } else if (symptom3Input.value.trim() === '') {
+          symptom3Input.value = data[0];
+        } else if (symptom4Input.value.trim() === '') {
+          symptom4Input.value = data[0];
+        } else {
+          alert('Você já inseriu todos os sintomas disponíveis.');
+        }
+      } else {
+        alert('Sintoma não encontrado no banco de dados.');
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao buscar sintomas:', error);
+    });
 
   // Lógica adicional para realizar a pesquisa, se necessário
   console.log(`Pesquisando por: ${searchTerm}`);
 }
-
-
 
   function showModal(title, text) {
     // Mostrar o modal
